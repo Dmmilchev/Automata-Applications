@@ -16,4 +16,9 @@ TEST_CASE("Delta works", "[delta]") {
     d.removeTransition(2, 'b');
     REQUIRE(d.next(1, 'c') == NotState);
     REQUIRE(d.next(2, 'b') == NotState);
+
+    d.addTransition(0, 'b', 0);
+    d.addTransition(1, 'c', 0);
+    REQUIRE(d.next(0, 'b') == 0);
+    REQUIRE(d.next(1, 'c') == 0);
 }

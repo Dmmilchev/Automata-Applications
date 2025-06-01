@@ -2,7 +2,8 @@
 add_executable(my_project 
                main.cpp 
                Delta.cpp
-               Lambda.cpp)
+               Lambda.cpp
+               Transducer.cpp)
 
 # Install target
 install(TARGETS my_project DESTINATION bin)
