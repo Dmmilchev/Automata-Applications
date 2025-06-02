@@ -3,9 +3,11 @@ add_executable(tests
                test_Delta.cpp
                test_Lambda.cpp
                test_Transducer.cpp
+               test_Minimal.cpp
                ../src/Delta.cpp
                ../src/Lambda.cpp
-               ../src/Transducer.cpp)
+               ../src/Transducer.cpp
+               ../src/Minimal.cpp)
 
 # Link with Catch2
 target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)

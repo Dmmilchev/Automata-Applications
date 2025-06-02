@@ -22,20 +22,20 @@ void Transducer::addState(bool isFinal) {
         finalStates.insert(stateMax);
 }
 
-void Transducer::removeState(State q) {
-    if (statesCount == 0)
-        throw std::logic_error("Removing state from empty transducer.");
+// void Transducer::removeState(State q) {
+//     if (statesCount == 0)
+//         throw std::logic_error("Removing state from empty transducer.");
 
-    if (q == stateMax) 
-        stateMax--;
-    else
-        deletedStates.insert(q);
+//     if (q == stateMax) 
+//         stateMax--;
+//     else
+//         deletedStates.insert(q);
 
-    if (finalStates.count(q) == 1)
-        finalStates.erase(q);
-
-    statesCount--;
-}
+//     if (finalStates.count(q) == 1)
+//         finalStates.erase(q);
+    
+//     statesCount--;
+// }
 
 void Transducer::addTransition(State from, Letter c, State to) {
     delta.addTransition(from, c, to);

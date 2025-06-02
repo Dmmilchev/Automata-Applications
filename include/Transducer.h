@@ -6,17 +6,16 @@
 #include "Delta.h"
 #include "Lambda.h"
 
-class Transducer {
+struct Transducer {
 // Class implementation of a subsequential transducer with initial output
 
-private:
     // inSigma is char
     // outSigma is Nat
     // states are State
     
-    uint32_t statesCount;
+    uint32_t statesCount = 0;
     uint32_t stateMax = UINT32_MAX;
-    std::unordered_set<State> deletedStates;  // used when removing word from language
+    // std::unordered_set<State> deletedStates;  // used when removing word from language
     // initial state is 0
 
     std::unordered_set<State> finalStates;
@@ -25,13 +24,13 @@ private:
     Nat iota = 0;
     std::unordered_map<State, Nat> psi;
 
-public:
+
     void setIota(Nat iota);
     void setPsi(State q, Nat out);
     void removePsi(State q);
 
     void addState(bool isFinal);
-    void removeState(State q);
+    // void removeState(State q);
 
     void addTransition(State from, Letter c, State to);
     void removeTransition(State from, Letter c);
