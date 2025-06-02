@@ -1,16 +1,35 @@
 #include <iostream>
 #include "Transducer.h"
 #include "Minimal.h"
+#include "StateSignature.h"
 
 int main() {
-    Transducer t1 = createInitialTransducer("abcdabca", 10);
-    std::cout << t1.statesCount << " " <<t1.stateMax << std::endl;
+    Transducer t;
+    
+    t.addState(true);
+    t.addState(true);
 
-    Transducer t2 = createInitialTransducer("", 10);
-    std::cout << t2.statesCount << " " <<t2.stateMax << std::endl;
+    t.addTransition(0, 'a', 0);
+    t.addTransition(0, 'b', 0);
+    t.addTransition(0, 'c', 1);
+    t.addTransition(1, 'a', 1);
+    t.addTransition(1, 'b', 1);
+    t.addTransition(1, 'c', 1);
 
-    Transducer t3 = createInitialTransducer("aaaa", 10);
-    std::cout << t3.statesCount << " " <<t3.stateMax << std::endl;
+    t.addOutput(0, 'a', 2);
+    t.addOutput(0, 'b', 3);
+    t.addOutput(0, 'c', 0);
+    t.addOutput(1, 'a', 0);
+    t.addOutput(1, 'b', 0);
+    t.addOutput(1, 'c', 0);
+
+    t.setPsi(1, 100);
+    
+    StateSignature sign0(t, 0);
+    StateSignature sign1(t, 1);
+
+    sign0.print();
+    sign1.print();
 
     return 0;
 }
